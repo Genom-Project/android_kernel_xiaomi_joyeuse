@@ -1,3 +1,4 @@
+
 /* Copyright (c) 2015-2020, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -2621,7 +2622,7 @@ bool ipa_has_open_aggr_frame(enum ipa_client_type client)
 
 int ipa_mhi_resume_channels_internal(enum ipa_client_type client,
 		bool LPTransitionRejected, bool brstmode_enabled,
-		union __packed gsi_channel_scratch ch_scratch, u8 index,
+		union gsi_channel_scratch ch_scratch, u8 index,
 		bool is_switch_to_dbmode)
 {
 	int ret;
