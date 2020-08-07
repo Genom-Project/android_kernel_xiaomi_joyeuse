@@ -199,6 +199,7 @@ static ssize_t double_tap_store(struct kobject *kobj,
     return -EINVAL;
     
     ts->is_gesture_mode = !!val;
+    set_lcd_reset_gpio_keep_high(!!val);
     return count;
 }
 
