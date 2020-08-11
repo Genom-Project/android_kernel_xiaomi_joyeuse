@@ -80,6 +80,22 @@ endif
 
 else # TARGET_BOARD_TYPE != auto
 
+ifeq ($(CONFIG_MACH_XIAOMI_ATOLL),y)
+ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+dtbo-$(CONFIG_ARCH_ATOLL) += \
+		custa-atoll-ab-idp-overlay.dtbo \
+		custd-atoll-ab-idp-overlay.dtbo \
+		custe-atoll-ab-idp-overlay.dtbo \
+		custj-atoll-ab-idp-overlay.dtbo \
+		custg-atoll-ab-idp-overlay.dtbo
+
+custa-atoll-ab-idp-overlay.dtbo-base := cust-atoll-ab.dtb
+custd-atoll-ab-idp-overlay.dtbo-base := cust-atoll-ab.dtb
+custe-atoll-ab-idp-overlay.dtbo-base := cust-atoll-ab.dtb
+custj-atoll-ab-idp-overlay.dtbo-base := cust-atoll-ab.dtb
+custg-atoll-ab-idp-overlay.dtbo-base := cust-atoll-ab.dtb
+endif
+else
 dtb-$(CONFIG_ARCH_QCOM)	+= apq8016-sbc.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= apq8096-db820c.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= ipq8074-hk01.dtb
@@ -527,6 +543,7 @@ dtb-$(CONFIG_ARCH_SDM429W) += sdm429-wtp.dtb\
 	sda429-bg-dvt2-wtp.dtb
 endif
 
+endif
 endif
 
 ifeq ($(CONFIG_ARM64),y)
